@@ -1,9 +1,9 @@
 INSERT INTO Clientes (nombre,apellido,email,telefono,direccion,ciudad,pais) VALUES
-('Juana','Lopez','juana@mail.com','1165952','calle 4242','BSAS','Arg');
+('Sandra','conde','sspkks@mail.com','12538888','calle 44545','BSAS','Arg');
 
 
 INSERT INTO Productos (producto) VALUES
-('yogur');
+('MIJO');
 
-INSERT INTO Ventas (venta) VALUES
-('--' );
+INSERT INTO Ventas (idProductos,idClientes) VALUES
+(idProductos,idClientes);

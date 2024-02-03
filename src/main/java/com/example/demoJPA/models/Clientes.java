@@ -3,7 +3,6 @@ package com.example.demoJPA.models;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.List;
 
 
@@ -21,19 +20,38 @@ private  long id;
 
 
 @OneToMany(mappedBy = "clientes")
-private List<Productos> producto;
+ private List <Ventas> productos;  //SE TIENE QUE CREAR GETTESR Y SETTER?
 
-    @OneToMany(mappedBy = "clientes")
-    private List<Ventas> Ventas;
-    public List<Productos> getProducto() {
-        return producto;
-    }
+private String nombre;
+    @Getter
+    @Setter
+    @Column
+    private String apellido;
 
-    public void setProducto(List<Productos> producto) {
-        this.producto = producto;
-    }
+    @Column
+    @Getter
+    @Setter
+    private String email;
 
-    private String nombre;
+    @Column
+    @Getter
+    @Setter
+    private String telefono;
+
+    @Column
+    @Getter
+    @Setter
+    private String direccion;
+
+    @Column
+    @Getter
+    @Setter
+    private String ciudad;
+
+    @Column
+    @Getter
+    @Setter
+    private String pais;
 
     public long getId() {
         return id;
@@ -98,36 +116,6 @@ private List<Productos> producto;
     public void setPais(String pais) {
         this.pais = pais;
     }
-    @Getter
-@Setter
-@Column
-private String apellido;
-
-@Column
-@Getter
-@Setter
-private String email;
-
-@Column
-@Getter
-@Setter
-private String telefono;
-
-@Column
-@Getter
-@Setter
-private String direccion;
-
-@Column
-@Getter
-@Setter
-private String ciudad;
-
-@Column
-@Getter
-@Setter
-private String pais;
-
 
 
 }

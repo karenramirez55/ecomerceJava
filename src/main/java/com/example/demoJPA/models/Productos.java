@@ -1,49 +1,41 @@
 package com.example.demoJPA.models;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
+import java.util.List;
 @Entity
-@Table(name = "productos")
+@Table(name = "productos") //renombramos la tabla productos
 
-public class Productos {
+
+public class Productos { //creamos clase producto
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    @Getter
-    @Setter
-    private  long id;
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //le decimos que va a tener un ID
     @Column
     @Getter
     @Setter
 
-
-    private String producto;
-
-    public Clientes getClientes() {
-        return clientes;
-    }
-
-    public void setClientes(Clientes clientes) {
-        this.clientes = clientes;
-    }
-
-    @ManyToOne
+    @OneToMany
     private Clientes clientes;
+
+
+    private  long id; //le decimos que va a tener un ID único PK
+    private String producto;
 
 
     public String getProducto() {
         return producto;
     }
 
-    public void setProducto1(String producto1) {
+    public void setProducto(String producto) {
         this.producto = producto;
     }
 
 
+    public long getId() {
+        return id;
+    }
 
-
-
+    public void setId(long id) {
+        this.id = id;
+    }
 }

@@ -10,7 +10,7 @@ USE ecomerce;
 
 CREATE TABLE IF NOT EXISTS Clientes(
 
-id INT AUTO_INCREMENT PRIMARY KEY,
+idClientes INT AUTO_INCREMENT PRIMARY KEY,
 
 nombre VARCHAR(100) NOT NULL,
 
@@ -24,30 +24,32 @@ direccion VARCHAR(255),
 
 ciudad VARCHAR(100),
 
-
 pais VARCHAR(100)
 
 );
 
-
+--CREE ID CON SUS NOMBRES PARA CADA PRIMARY KEY
 -- Crear la tabla de Productos
 
 CREATE TABLE IF NOT EXISTS Productos(
 
-id INT AUTO_INCREMENT PRIMARY KEY,
+idProductos INT AUTO_INCREMENT PRIMARY KEY,
 
 producto VARCHAR(100) NOT NULL
 
 
 );
 
--- Crear la tabla de Productos
+-- Crear la tabla de ventas
 
 CREATE TABLE IF NOT EXISTS Ventas(
 
-id INT AUTO_INCREMENT PRIMARY KEY,
+idVentas INT AUTO_INCREMENT PRIMARY KEY,
 
-venta VARCHAR(100) NOT NULL
+idProductos VARCHAR(100) NOT NULL,
+
+idClientes VARCHAR(100) NOT NULL
+
 
 
 );
