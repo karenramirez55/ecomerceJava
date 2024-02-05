@@ -1,26 +1,21 @@
 package com.example.demoJPA.models;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.List;
 
-
 @Entity
 @Table(name = "clientes") //como buena practica seteamos el nombre para que sea en plural
 
-public class Clientes {
 
+public class Clientes {
 
 @GeneratedValue(strategy = GenerationType.IDENTITY) //incrementador del ID
 @Id
-@Getter
-@Setter
 private  long id;
 
-
-@OneToMany(mappedBy = "clientes")
- private List <Ventas> productos;  //SE TIENE QUE CREAR GETTESR Y SETTER?
+@OneToMany(mappedBy = "idClientes")
+ private List <Ventas> ventas;
 
 private String nombre;
     @Getter
@@ -117,5 +112,11 @@ private String nombre;
         this.pais = pais;
     }
 
+    public List<Ventas> getVentas() {
+        return ventas;
+    }
 
+    public void setVentas(List<Ventas> ventas) {
+        this.ventas = ventas;
+    }
 }

@@ -10,66 +10,39 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 
 public class Ventas {
 
+    //Le decimos que va a tener un id único PK
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
-    private String venta;
+    private  long id;
 
-    private  long id; //le decimos que va a tener un ID único PK
-    @Getter
-    @Setter
-    @Column
-    private String idClientes;
 
-    @Getter
-    @Setter
-    @Column
-    private String idProductos;
+    //Hacemos el muchos a uno, con los id de la clase Clientes
 
     @ManyToOne
-    private Clientes clientes;  //guarda un objeto de tipo CLIENTES
+    private Clientes idClientes;
     @JoinColumn(name = "idClientes")
 
-    public String getVenta() {
-        return venta;
-    }
 
-    public void setVenta(String venta) {
-        this.venta = venta;
-    }
+    //Hacemos el muchos a uno, con los id de la clase productos
 
-    public Clientes getClientes() {
-        return clientes;
-    }
+    @ManyToOne
+    private Productos idProductos;
+    @JoinColumn(name = "idProductos")
 
-    public void setClientes(Clientes clientes) {
-        this.clientes = clientes;
-    }
 
-    public String getIdClientes() {
+    public Clientes getIdClientes() {
         return idClientes;
     }
 
-    public void setIdClientes(String idClientes) {
+    public void setIdClientes(Clientes idClientes) {
         this.idClientes = idClientes;
     }
 
-    public String getIdProductos() {
+    public Productos getIdProductos() {
         return idProductos;
     }
 
-    public void setIdProductos(String idProductos) {
+    public void setIdProductos(Productos idProductos) {
         this.idProductos = idProductos;
     }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-
 }

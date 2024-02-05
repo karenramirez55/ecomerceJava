@@ -46,10 +46,8 @@ CREATE TABLE IF NOT EXISTS Ventas(
 
 idVentas INT AUTO_INCREMENT PRIMARY KEY,
 
-idProductos VARCHAR(100) NOT NULL,
+idProductos INT NOT NULL,
 
-idClientes VARCHAR(100) NOT NULL
-
-
+idClientes INT NOT NULL
 
 );

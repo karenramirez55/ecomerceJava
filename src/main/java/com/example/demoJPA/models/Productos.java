@@ -10,16 +10,14 @@ import java.util.List;
 public class Productos { //creamos clase producto
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //le decimos que va a tener un ID
+    private  long id; //le decimos que va a tener un ID único PK
     @Column
     @Getter
     @Setter
-
-    @OneToMany
-    private Clientes clientes;
-
-
-    private  long id; //le decimos que va a tener un ID único PK
     private String producto;
+
+    @OneToMany(mappedBy = "idProductos")
+    private List<Ventas> ventas;
 
 
     public String getProducto() {
@@ -30,12 +28,11 @@ public class Productos { //creamos clase producto
         this.producto = producto;
     }
 
-
-    public long getId() {
-        return id;
+    public List<Ventas> getVentas() {
+        return ventas;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setVentas(List<Ventas> ventas) {
+        this.ventas = ventas;
     }
 }
