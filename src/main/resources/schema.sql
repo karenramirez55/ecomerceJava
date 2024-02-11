@@ -24,7 +24,9 @@ direccion VARCHAR(255),
 
 ciudad VARCHAR(100),
 
-pais VARCHAR(100)
+pais VARCHAR(100),
+
+fechaNacimiento VARCHAR(100)
 
 );
 

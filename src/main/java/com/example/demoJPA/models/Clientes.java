@@ -48,6 +48,11 @@ private String nombre;
     @Setter
     private String pais;
 
+    @Column
+    @Getter
+    @Setter
+    private String fechaNacimiento;
+
     public long getId() {
         return id;
     }
@@ -119,4 +124,15 @@ private String nombre;
     public void setVentas(List<Ventas> ventas) {
         this.ventas = ventas;
     }
+<<<<<<< HEAD
+=======
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+>>>>>>> e14d08b (actualizaciones)
 }
