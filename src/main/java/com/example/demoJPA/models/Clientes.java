@@ -6,18 +6,20 @@ import java.util.List;
 
 @Entity
 @Table(name = "clientes") //como buena practica seteamos el nombre para que sea en plural
-
-
 public class Clientes {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //incrementador del ID
+    @Column(name = "id_cliente")
+    private  long idClientes;
 
-@GeneratedValue(strategy = GenerationType.IDENTITY) //incrementador del ID
-@Id
-private  long id;
+    @OneToMany(mappedBy = "idClientes")
+    private List <Ventas> ventas;
 
-@OneToMany(mappedBy = "idClientes")
- private List <Ventas> ventas;
+    @Getter
+    @Setter
+    @Column
+    private String nombre;
 
-private String nombre;
     @Getter
     @Setter
     @Column
@@ -48,17 +50,17 @@ private String nombre;
     @Setter
     private String pais;
 
-    @Column
+    @Column(name = "fecha_nacimiento")
     @Getter
     @Setter
     private String fechaNacimiento;
 
     public long getId() {
-        return id;
+        return idClientes;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.idClientes = id;
     }
 
     public String getNombre() {
@@ -124,8 +126,6 @@ private String nombre;
     public void setVentas(List<Ventas> ventas) {
         this.ventas = ventas;
     }
-<<<<<<< HEAD
-=======
 
     public String getFechaNacimiento() {
         return fechaNacimiento;
@@ -134,5 +134,5 @@ private String nombre;
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
->>>>>>> e14d08b (actualizaciones)
+
 }

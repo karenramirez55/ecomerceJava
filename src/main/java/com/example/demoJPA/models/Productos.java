@@ -5,12 +5,12 @@ import lombok.Setter;
 import java.util.List;
 @Entity
 @Table(name = "productos") //renombramos la tabla productos
-
-
 public class Productos { //creamos clase producto
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //le decimos que va a tener un ID
-    private  long id; //le decimos que va a tener un ID único PK
+    @Column(name = "id_productos")
+    private  long idProductos; //le decimos que va a tener un ID único PK
+
     @Column
     @Getter
     @Setter
