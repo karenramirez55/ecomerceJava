@@ -10,7 +10,7 @@ public class Clientes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //incrementador del ID
     @Column(name = "id_cliente")
-    private  long idClientes;
+    private  long idClientes; //esto indica que la PK id_cliente ahora sera guardada en idClientes
 
     @OneToMany(mappedBy = "idClientes")
     private List <Ventas> ventas;
