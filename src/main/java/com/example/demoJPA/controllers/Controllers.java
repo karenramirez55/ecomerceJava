@@ -2,40 +2,52 @@ package com.example.demoJPA.controllers;
 
 import com.example.demoJPA.models.Clientes;
 import com.example.demoJPA.repository.Repository;
-import jakarta.persistence.Id;
-import jakarta.persistence.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import java.time.LocalDate;
-import java.time.Period;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 
 @RestController
+
+
 public class Controllers {
+
 
     @Autowired
     private Repository repo; //inicia nuestro controlador
+
 
     @GetMapping //mapea con la web y postman URL con el GET
     public String index(){
         return "Conectado a postman y al local host de la web...";
     }
 
+    @Operation(summary = "Listado de todos los clientes",description = "Permite ver la lista de clientes")
     @GetMapping("clientes") //CREA UN ARRAY CON LA CLASE CLIENTES
     public List <Clientes> getClientes(){
         return repo.findAll();
     }
 
-    @PostMapping("alta") //METODO POST MODIFICA UN CLIENTE
+    @Operation(summary = "Crear nuevo usuario", description = "Permite dar de alta un cliente")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Operación exitosa"),
+            @ApiResponse(responseCode = "400", description = "Parámetros incorrectos",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = LogsMessage.class)))
+    })
+    @PostMapping("alta") //METODO POST DA DE ALTA  UN CLIENTE
     public String post(@RequestBody Clientes cliente){
         repo.save(cliente);
             return "Guardado correctamente";
     }
 
+    @Operation(summary = "Modificar cliente",description = "Permite modificar datos del Cliente por ID")
     @PutMapping("modificar/{id}") //UPDATEA MODIFICA ALGUN DATO POR EL MOMENTO DESDE POSTMAN
     public String update(@PathVariable Long id,@RequestBody Clientes cliente){
         Clientes updateCliente=repo.findById(id).get();
@@ -45,21 +57,15 @@ public class Controllers {
         return "Se modifico correctamente";
 
     }
-    @DeleteMapping("modificar/{id}") // elimina un dato
+    @Operation(summary = "Eliminar cliente", description = "Permite eliminar un cliente por ID")
+    @DeleteMapping("delete/{id}") // elimina un cliente
     public String delete(@PathVariable Long id){
         Clientes deleteCliente= repo.findById(id).get();
         repo.delete(deleteCliente);
         return "Cliente eliminado";
     }
 
-    @GetMapping("edad")
-    public String edad(@RequestParam("fechaDeNacimiento") LocalDate fechaDeNacimiento) {
-        LocalDate fechaActual = LocalDate.now();
-        Period periodo = Period.between(fechaDeNacimiento, fechaActual);
-        int edad = periodo.getYears();
-        return "La edad es: " + edad + " años";
-    }
-
+    
 
 
 

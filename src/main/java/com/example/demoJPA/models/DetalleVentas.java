@@ -1,4 +1,5 @@
-package com.example.demoJPA.models;
+/*package com.example.demoJPA.models;
 
 public class DetalleVentas {
 }
+*/

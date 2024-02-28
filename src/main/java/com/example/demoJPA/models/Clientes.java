@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import java.util.List;
 
+
 @Entity
 @Table(name = "clientes") //como buena practica seteamos el nombre para que sea en plural
 public class Clientes {
@@ -134,5 +135,6 @@ public class Clientes {
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+
 
 }

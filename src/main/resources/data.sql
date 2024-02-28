@@ -1,5 +1,5 @@
 INSERT INTO Clientes (nombre,apellido,email,telefono,direccion,ciudad,pais,fecha_nacimiento) VALUES
-('Nazareth','Trovato','jua@mail.com','888888','calle Dios','Bagnara','Italia','23/02/93');
+('Nazareth','Trovato','cmmmmñññññññññ_@mail.com','888888','calle Dios','Bagnara','Italia','23/02/93');
 
 INSERT INTO Productos (producto) VALUES
 ('Panettone');
