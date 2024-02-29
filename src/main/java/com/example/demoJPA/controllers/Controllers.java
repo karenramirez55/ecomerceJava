@@ -1,5 +1,6 @@
 package com.example.demoJPA.controllers;
 
+import com.example.demoJPA.models.ClienteDTO;
 import com.example.demoJPA.models.Clientes;
 import com.example.demoJPA.repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,7 @@ public class Controllers {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Operación exitosa"),
             @ApiResponse(responseCode = "400", description = "Parámetros incorrectos",
-                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = LogsMessage.class)))
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = ClienteDTO.class)))
     })
     @PostMapping("alta") //METODO POST DA DE ALTA  UN CLIENTE
     public String post(@RequestBody Clientes cliente){

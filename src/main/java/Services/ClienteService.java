@@ -6,17 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-
+//ESTO ES LO QUE NO SE FUNCIONA LA LÓGICA
 
 @Service
-public abstract class ClienteService {
-    @Autowired
-    public ResponseEntity<String> grabar(@NotNull Clientes clientes) {
+public class ClienteService {
+    public String grabar(@NotNull Clientes clientes) {
         if (clientes.getNombre() == null || clientes.getApellido() == null) {
-            return ResponseEntity.status(500).body("409 La operacion no se pudo realizar, verificar!");
+            return "409 La operacion no se pudo realizar, verificar!";
         } else {
-            // Agrega una instrucción de retorno aquí (por ejemplo, 200 o 204)
-            return ResponseEntity.status(200).body("verificado!");
+            return "200 -> verificado!";
         }
     }
 }
