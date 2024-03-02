@@ -1,5 +1,6 @@
 package com.example.demoJPA.controllers;
 
+import com.example.demoJPA.Services.ClienteServices;
 import com.example.demoJPA.models.ClienteDTO;
 import com.example.demoJPA.models.Clientes;
 import com.example.demoJPA.repository.Repository;
@@ -24,6 +25,8 @@ public class Controllers {
     @Autowired
     private Repository repo; //inicia nuestro controlador
 
+    @Autowired
+    private ClienteServices clienteServices;
 
     @GetMapping //mapea con la web y postman URL con el GET
     public String index(){
@@ -44,8 +47,13 @@ public class Controllers {
     })
     @PostMapping("alta") //METODO POST DA DE ALTA  UN CLIENTE
     public String post(@RequestBody Clientes cliente){
-        repo.save(cliente);
-            return "Guardado correctamente";
+
+        String respuesta= clienteServices.grabar(cliente);
+        if (respuesta.equals("")){
+            repo.save(cliente);
+            respuesta= "Guardado correctamente";
+        }
+        return respuesta;
     }
 
     @Operation(summary = "Modificar cliente",description = "Permite modificar datos del Cliente por ID")
