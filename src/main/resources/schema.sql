@@ -37,8 +37,11 @@ CREATE TABLE IF NOT EXISTS Productos(
 
 id_productos INT AUTO_INCREMENT PRIMARY KEY,
 
-producto VARCHAR(100) NOT NULL
+producto VARCHAR(100) NOT NULL,
 
+categoria  VARCHAR(100),
+
+precio  DOUBLE NOT NULL
 
 );
 

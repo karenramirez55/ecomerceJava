@@ -16,6 +16,16 @@ public class Productos { //creamos clase producto
     @Setter
     private String producto;
 
+    @Column
+    @Getter
+    @Setter
+    private String categoria;
+
+    @Column
+    @Getter
+    @Setter
+    private double precio;
+
     @OneToMany(mappedBy = "idProductos")
     private List<Ventas> ventas;
 
@@ -34,5 +44,21 @@ public class Productos { //creamos clase producto
 
     public void setVentas(List<Ventas> ventas) {
         this.ventas = ventas;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 }
