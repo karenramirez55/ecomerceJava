@@ -30,7 +30,6 @@ public class Ventas {
     private Productos idProductos;
 
 
-
     public Clientes getIdClientes() {
         return idClientes;
     }

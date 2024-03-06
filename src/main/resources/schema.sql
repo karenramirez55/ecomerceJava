@@ -46,13 +46,18 @@ precio  DOUBLE NOT NULL
 );
 
 -- Crear la tabla de ventas
-
 CREATE TABLE IF NOT EXISTS Ventas(
 
 id_ventas INT AUTO_INCREMENT PRIMARY KEY,
 
 id_productos INT NOT NULL,
 
-id_clientes INT NOT NULL
+id_clientes INT NOT NULL,
 
+FOREIGN KEY (id_clientes) REFERENCES Clientes(id_cliente),
+
+FOREIGN KEY (id_productos) REFERENCES Productos(id_productos)
 );
+
+
+
